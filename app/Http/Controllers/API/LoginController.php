@@ -42,4 +42,9 @@ class LoginController extends Controller
 
 	    return response()->json(['status' => 200]);
     }
+
+    public function getUser()
+	{
+	    return auth()->user();
+	}
 }

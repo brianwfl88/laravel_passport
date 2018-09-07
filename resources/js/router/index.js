@@ -70,6 +70,7 @@ export default new Router({
       redirect: '/dashboard',
       name: 'Home',
       component: DefaultContainer,
+      meta: { middlewareAuth: true },
       children: [
         {
           path: 'dashboard',

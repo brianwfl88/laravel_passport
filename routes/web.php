@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/{vue_route?}', function () {
     return view('vue-app');
 });
 

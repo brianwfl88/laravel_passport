@@ -17,7 +17,7 @@ import Vue from 'vue'
 import BootstrapVue from 'bootstrap-vue'
 import App from './App.vue'
 import router from './router'
-import auth from './auth'
+import Auth from './auth.js'
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -30,6 +30,7 @@ Vue.use(BootstrapVue);
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
 window.Event = new Vue;
+window.auth = new Auth;
 
 const app = new Vue({
 	el: '#app',

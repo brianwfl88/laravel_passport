@@ -105,6 +105,6 @@ export default {
           this.authenticated = true;
           this.user = auth.user;
       });
-  },
+  }
 }
 </script>

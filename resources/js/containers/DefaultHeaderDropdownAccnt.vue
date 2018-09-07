@@ -36,11 +36,11 @@
       <b-dropdown-divider />
       <b-dropdown-item><i class="fa fa-shield" /> Lock Account</b-dropdown-item>
       <!-- <b-dropdown-item><i class="fa fa-lock" /> Logout</b-dropdown-item> -->
-      <div v-if="authenticated && user">
+      <b-dropdown-item v-if="authenticated && user">
           <p>Hello, {{ user.name }}</p>
 
           <router-link to="/logout"><i class="fa fa-lock" /> Logout</router-link>
-      </div>
+      </b-dropdown-item>
 
       <!-- <router-link to="/login" v-else>Login</router-link> -->
     </template>
@@ -55,7 +55,17 @@ export default {
     AppHeaderDropdown
   },
   data: () => {
-    return { itemsCount: 42 }
+    return { 
+      itemsCount: 42,
+      authenticated: auth.check(),
+      user: auth.user
+    }
+  },
+  mounted() {
+      Event.$on('userLoggedIn', () => {
+          this.authenticated = true;
+          this.user = auth.user;
+      });
   }
 }
 </script>
